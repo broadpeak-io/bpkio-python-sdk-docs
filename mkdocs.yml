@@ -1,0 +1,115 @@
+site_name: bpkio-python-sdk
+site_description: Documentation for the broadpeak.io Python SDK
+repo_url: https://github.com/broadpeak-io/bpkio-python-sdk-docs
+repo_name: broadpeak-io/bpkio-python-sdk-docs
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: amber
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: amber
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [bpkio_api]
+          options:
+            docstring_style: google
+            docstring_section_style: table
+            show_root_heading: true
+            show_source: false
+            show_bases: true
+            show_signature: false
+            signature_crossrefs: true
+            separate_signature: true
+            show_signature_annotations: true
+            unwrap_annotated: true
+            merge_init_into_class: true
+            members_order: source
+            filters: ["!^_"]
+            heading_level: 3
+            show_if_no_docstring: true
+            show_category_heading: true
+            docstring_options:
+              ignore_init_summary: true
+            line_length: 80
+            show_submodules: true
+            show_labels: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - pymdownx.magiclink
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: guides/installation.md
+    - Quick Start: guides/quickstart.md
+    - API Mapping: guides/api_mapping.md
+    - Authentication: guides/authentication.md
+  - API Reference:
+    - Overview: api/index.md
+    - Client: api/client.md
+    - Endpoints:
+      - Overview: api/endpoints/index.md
+      - Sources: api/endpoints/sources.md
+      - Services: api/endpoints/services.md
+      - Transcoding Profiles: api/endpoints/transcoding_profiles.md
+      - Users: api/endpoints/users.md
+      - Tenants: api/endpoints/tenants.md
+      - Categories: api/endpoints/categories.md
+      - Consumption: api/endpoints/consumption.md
+    - Models:
+      - Overview: api/models/index.md
+      - Sources: api/models/sources.md
+      - Services: api/models/services.md
+      - Transcoding Profiles: api/models/transcoding_profiles.md
+      - Users: api/models/users.md
+      - Tenants: api/models/tenants.md
+      - Categories: api/models/categories.md
+      - Consumption: api/models/consumption.md
+      - Common: api/models/common.md
+    - Utilities:
+      - Overview: api/utils/index.md
+      - Credential Provider: api/utils/credential_provider.md
+      - Caching: api/utils/caching.md
+      - Exceptions: api/utils/exceptions.md 
